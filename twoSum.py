@@ -33,7 +33,10 @@ class Solution:
         print "Result: " + str(res)
         return res
     
-    '''Much smarter way, time complexity O(nlgn), depending on sorting '''
+    '''
+    Much smarter way, time complexity O(nlgn), depending on sorting 
+    Use dictonary to trace the index
+    '''
     def twoSum_(self, li, target):
         right = len(li) - 1
         left = 0
@@ -44,14 +47,12 @@ class Solution:
 
         for i in xrange(len(li)):
              dic[li[i]] = i + 1
-
-        print oli
-        print dic
         
         while left < right:
             sum = oli[left] + oli[right]
             if sum == target:
                 res.append((dic[oli[left]], dic[oli[right]]))
+                break
             elif sum > target:
                 right -= 1
             else:
