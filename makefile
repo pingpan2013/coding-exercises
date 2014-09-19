@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = 3sum.cc 
-OBJS = 3sum.o
+SOURCE = singleInteger.cc 
+OBJS = singleInteger.o
 
 all:${OUTPUT}
 .PHONY:all
