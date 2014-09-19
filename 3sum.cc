@@ -4,8 +4,8 @@
  *    Filename:  3sum.cpp
  *
  *    Description:  3Sum problem
- *	Given a set S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets 
- *  	in the set which gives the sum of zero.
+ *	Given a set S of n integers, are there elements a, b, c in S such that a + b + c = 0? 
+ *	Find all unique triplets in the set which gives the sum of zero.
  *	For example, given set S = {-1 0 1 2 -1 -4},
  *	One possible solution set is:
  *	(-1, 0, 1)
@@ -26,11 +26,11 @@ using namespace std;
 
 class Solution{
 public:
-    set<vector<int> > 3Sum(vector<int> arr){
+    set<vector<int> > _3sum(vector<int> arr){
         sort(arr.begin(), arr.end());
 	set<vector<int> > result;
         
-        for(int i = 0; i < arr.size(); i ++){
+        for(unsigned int i = 0; i < arr.size(); i ++){
             int value = - arr[i];
             int low = i + 1;
             int high = arr.size() - 1;
@@ -54,16 +54,20 @@ public:
         }
         return result;
     }
-}
-
+};
 
 int main(){
+    int arr[] = {-1, 0, 1, 2, -1, 4};
+    vector<int> vec(arr, arr + sizeof(arr)/sizeof(arr[0]));
+    //or vector<int> vec({-1, 0, 1, 2, -1, 4});
     Solution sol;
-    set<vector<int> > result = sol.3Sum([-1, 0, 1, 2, -1, 4]);
-    for(auto vec: result)
-        for(auto it = vec.begin(); vec.end(); it ++)
+    set<vector<int> > result = sol._3sum(vec);
+    
+    for(auto vec: result){
+        for(auto it = vec.begin(); it != vec.end(); it ++)
             cout << *it << " ";
-        cout << endl;    
+        cout << endl;   
+    }
 
     return 0;
 }
