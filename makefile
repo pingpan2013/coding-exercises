@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = inOrderTraversal.cc 
-OBJS = inOrderTraversal.o
+SOURCE = ifSameTree.cc 
+OBJS = ifSameTree.o
 
 all:${OUTPUT}
 .PHONY:all

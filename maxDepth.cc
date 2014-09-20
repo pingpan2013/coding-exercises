@@ -11,18 +11,8 @@
  */
 
 #include <iostream>
-
+#include "tree.h"
 using namespace std;
-
-struct node{
-    node(int _data){
-        data = _data;
-    };
-
-    int data;
-    node* left;
-    node* right;
-};
 
 class Solution{
 public:
