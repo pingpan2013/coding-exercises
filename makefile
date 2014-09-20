@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = ifSameTree.cc 
-OBJS = ifSameTree.o
+SOURCE = reverseInteger.cc 
+OBJS = reverseInteger.o
 
 all:${OUTPUT}
 .PHONY:all
