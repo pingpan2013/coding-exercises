@@ -13,21 +13,13 @@
 #include <iostream>
 #include <stack>
 #include <vector>
+#include "tree.h"
 
 using namespace std;
 
-struct node{
-    node(int _data){
-        data = _data;
-    };
-
-    int data;
-    node* left;
-    node* right;
-};
-
 class Solution{
 public:
+    /* Solution using recursion */
     void inOrderTraverse_rec(node* root){
         if(!root)
             return;
@@ -36,28 +28,21 @@ public:
         cout << root->data << " ";
         inOrderTraverse_rec(root->right);
     }
-
-    void inOrderTraverse_iter(node* root){
-        node* cur = root;
+    
+    void inOrderTraverse_iter(node* root) {
         stack<node*> st;
-        vector<node*> trace;
-        
-        while(!st.empty()){
-            while(cur){
-                st.push(cur);
-                cur = cur->left;
+        node *current = root;
+        while (!st.empty() || current) {
+            while(current){
+                st.push(current);
+                current = current->left;
             }
             
-            cur = st.top();
-            cout << cur->data << endl;
+            current = st.top();
             st.pop();
-            trace.push_back(cur);
-            cur = cur->right;
+            cout << current->data << " ";
+            current = current->right;
         }
-
-        for(auto it: trace)
-            cout << it->data << " ";
-        cout << endl;
     }
 };
 
