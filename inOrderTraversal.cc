@@ -11,6 +11,8 @@
  */
 
 #include <iostream>
+#include <stack>
+#include <vector>
 
 using namespace std;
 
@@ -34,6 +36,29 @@ public:
         cout << root->data << " ";
         inOrderTraverse_rec(root->right);
     }
+
+    void inOrderTraverse_iter(node* root){
+        node* cur = root;
+        stack<node*> st;
+        vector<node*> trace;
+        
+        while(!st.empty()){
+            while(cur){
+                st.push(cur);
+                cur = cur->left;
+            }
+            
+            cur = st.top();
+            cout << cur->data << endl;
+            st.pop();
+            trace.push_back(cur);
+            cur = cur->right;
+        }
+
+        for(auto it: trace)
+            cout << it->data << " ";
+        cout << endl;
+    }
 };
 
 int main(){
@@ -49,6 +74,8 @@ int main(){
     node3->left = node4;
     
     sol.inOrderTraverse_rec(root);
+    cout << endl;
+    sol.inOrderTraverse_iter(root);
 }
 
 
