@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = reverseInteger.cc 
-OBJS = reverseInteger.o
+SOURCE = levelOrderTraversal.cc 
+OBJS = levelOrderTraversal.o
 
 all:${OUTPUT}
 .PHONY:all
