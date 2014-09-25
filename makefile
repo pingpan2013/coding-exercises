@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = levelOrderTraversal.cc 
-OBJS = levelOrderTraversal.o
+SOURCE = uniqueBST.cc 
+OBJS = uniqueBST.o
 
 all:${OUTPUT}
 .PHONY:all
