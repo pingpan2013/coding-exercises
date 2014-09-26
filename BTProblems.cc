@@ -65,7 +65,6 @@ public:
         printPathsRe(root, path);
         return;
     }
-
 };
 
 int main(){

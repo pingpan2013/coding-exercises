@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = BTProblems.cc 
-OBJS = BTProblems.o
+SOURCE = mirrorBT.cc 
+OBJS = mirrorBT.o
 
 all:${OUTPUT}
 .PHONY:all
