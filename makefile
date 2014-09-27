@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = deleteDuplicates.cc 
-OBJS = deleteDuplicates.o
+SOURCE = mergeTwoLists.cc 
+OBJS = mergeTwoLists.o
 
 all:${OUTPUT}
 .PHONY:all
