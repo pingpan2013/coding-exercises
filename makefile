@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = mirrorBT.cc 
-OBJS = mirrorBT.o
+SOURCE = searchInsertP.cc 
+OBJS = searchInsertP.o
 
 all:${OUTPUT}
 .PHONY:all
