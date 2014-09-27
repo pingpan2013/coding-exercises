@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = convertArrayToBST.cc
-OBJS = convertArrayToBST.o
+SOURCE = binaryTree.h binaryTree.cc convertArrayToBST.cc
+OBJS = binaryTree.o convertArrayToBST.o
 
 all:${OUTPUT}
 .PHONY:all

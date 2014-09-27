@@ -11,7 +11,7 @@
  */
 
 #include <iostream>
-#include "tree.h"
+#include "binrayTree.h"
 using namespace std;
 
 class Solution{

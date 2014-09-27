@@ -12,7 +12,7 @@
  */
 
 
-#include "tree.h"
+#include "binaryTree.h"
 #include <iostream>
 #include <vector>
 

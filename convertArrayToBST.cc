@@ -13,36 +13,34 @@
 
 
 #include <iostream>
-#include "tree.h"
+#include "binaryTree.h"
 
 using namespace std;
 
 class Solution{
 public:
     
-    void convert(int A[], int l, int r, node* n){
-        if(l < r)
-            return;
-
+    node* convert(int A[], int l, int r){
+        if(l > r)
+            return nullptr;
+        
         int mid = (l + r) / 2;
-        n->data = A[mid];
-        cout << n->data << endl;
-        convert(A, l, mid, n->left);
-        convert(A, mid + 1, r, n->right);
+        node* n = new node(A[mid]);
+        n->left = convert(A, l, mid - 1);
+        n->right = convert(A, mid + 1, r);
+        return n;
     }
     
-    void convertArrToBST(int A[], int n, node* res){
-        convert(A, 0, n-1, res); 
+    node* convertArrToBST(int A[], int n){
+        return convert(A, 0, n-1); 
     }
 };
 
 int main(){
     int A[] = {1, 2, 3, 4, 5, 6};
-    node* root = new node(0);
-    
     Solution sol;
-    sol.convertArrToBST(A, 6, root);
-    cout << root->data << endl;
+    node* root = sol.convertArrToBST(A, 6);
+    levelOrderTrav(root);
 }
 
 
