@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = mergeTwoLists.cc 
-OBJS = mergeTwoLists.o
+SOURCE = climbingStairs.cc 
+OBJS = climbingStairs.o
 
 all:${OUTPUT}
 .PHONY:all
