@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = maxSubarray.cc
-OBJS = maxSubarray.o
+SOURCE = convertArrayToBST.cc
+OBJS = convertArrayToBST.o
 
 all:${OUTPUT}
 .PHONY:all

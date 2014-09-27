@@ -31,7 +31,7 @@ public:
         while(cur){
             cout << cur->data << endl;
             node* temp = cur;
-            // Attention: Need to check if temp->next is nullptr
+            // Attention: Need to first check if temp->next is nullptr
             while(temp->next && temp->data == temp->next->data)
                 temp = temp->next;
             cur->next = temp->next;
