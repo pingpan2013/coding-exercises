@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = binaryTree.h binaryTree.cc permutations.cc
-OBJS = binaryTree.o permutations.o
+SOURCE = binaryTree.h binaryTree.cc genParentheses.cc
+OBJS = binaryTree.o genParentheses.o
 
 all:${OUTPUT}
 .PHONY:all
