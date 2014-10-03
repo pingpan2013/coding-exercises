@@ -7,8 +7,9 @@
  */
 
 
-#include "tree.h"
+#include "binaryTree.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -19,15 +20,21 @@ public:
         vector<int> result;
         int level = 1;
         
+        // use k to indicate the current # of the nums in the result
         helper(all_result, result, n, k, level);
     }
 
 private:
     void helper(vector<vector<int> > all_result, vector<int> result,
-                int n, int k, int level){
+                int n, unsigned k, int level){
         // one comb is present
         if(result.size() == k){
             all_result.push_back(result);
+
+            for(auto i: result)
+                cout << i << " ";
+            cout << endl;
+
             return;
         }
         
@@ -37,14 +44,17 @@ private:
             helper(all_result, result, n, k, ++level);
             result.pop_back();
         }
-
         return;
-
+    }
 };
 
 int main(){
     Solution sol;
-    sol.combinations()
+    vector<vector<int> > results;
+    vector<int> result;
+
+    sol.allCombinations(5, 3);
+    return 1;
 }
 
 
