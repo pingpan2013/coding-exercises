@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <queue>
-#inlcude <cassert>
+#include <cassert>
 
 using namespace std;
 
@@ -22,6 +22,19 @@ struct node{
     int value;
     int x;
     int y;
+
+    node(int _value, int _x, int _y){
+        value = _value;
+        x = _x;
+        y = _y;
+    }
+};
+
+class CompareNode{
+public:
+    bool operator()(node* n1, node* n2){
+        return (n1->value < n2->value);
+    }
 };
 
 class Solution{
@@ -31,19 +44,21 @@ public:
         
         k = min(m+n, k);
         vector<int> resVec;
-        priority_queue<node> resQueue;  // TODO: should implement the comparasion function of the priority_queue here
-        node a(a[0]+b[0], 0, 0);
-        resQueue.push(node);
+        priority_queue<node*, vector<node*>, CompareNode> resQueue;  
+        node* maxNode = new node(a[0]+b[0], 0, 0);
+        resQueue.push(maxNode);
                 
         while(k > 0){
-            node temp = resQueue.front();
-            resVec.push(temp.value);
+            node* temp = resQueue.top();
+            resVec.push_back(temp->value);
             resQueue.pop();
            
             //TODO: should check the rangs of the indexes here 
             //      should also check if there are duplicates here
-            node t1(a[temp.x + 1] + b[temp.y], temp.x+1, temp.y);
-            node t2(a[temp.x] + b[temp.y + 1], temp.x, temp.y+1);
+            node* t1 = new node(a[temp->x + 1] + b[temp->y], temp->x+1, temp->y);
+            node* t2 = new node(a[temp->x] + b[temp->y + 1], temp->x, temp->y+1);
+    
+            delete temp;
 
             resQueue.push(t1);
             resQueue.push(t2);
@@ -51,7 +66,7 @@ public:
             k --;            
         }
 
-        for(auto i: res)
+        for(auto i: resVec)
             cout << i << " ";
         cout << endl;
 
@@ -59,3 +74,12 @@ public:
     }
 };
 
+
+int main(){
+    int a[] = {20, 18, 12, 10, };
+    int b[] = {10, 9, 6, 4, 2};
+
+    Solution sol;
+    sol.findMaxPairs(a, 5, b, 5, 6);
+
+}
