@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = binaryTree.cc kth_smallest.cc
-OBJS = binaryTree.o kth_smallest.o
+SOURCE = binaryTree.cc k_max_pairs.cc
+OBJS = binaryTree.o k_max_pairs.o
 
 all:${OUTPUT}
 .PHONY:all
