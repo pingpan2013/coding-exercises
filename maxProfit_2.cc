@@ -47,9 +47,10 @@ int main(){
     vec.push_back(8);
     vec.push_back(2);
     vec.push_back(3);
-
     assert(sol.maxProfit(vec) == 8 && "failed in null input test!");
-   
+
+    cout << "Passed all the tests!" << endl;
+
     return 0;
 }
 
