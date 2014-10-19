@@ -13,6 +13,7 @@
 struct node{
     int data;
     node* next;
+    node(int _data): data(_data), next(nullptr){}
 };
 
 
