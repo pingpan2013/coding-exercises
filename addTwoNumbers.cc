@@ -23,12 +23,10 @@ using namespace std;
 
 class Solution{
 public:    
-    node* addTwoNumbers(node* n1, node* n2){
-        if(!n1) return n2;
-        if(!n2) return n1;
+    node* addTwoNumbers(node* cur1, node* cur2){
+        if(!cur1) return cur2;
+        if(!cur2) return cur1;
         
-        node* cur1 = n1; 
-        node* cur2 = n2; 
         node* res  = new node(-1);
         node* cur = res;
 
@@ -66,6 +64,11 @@ public:
             rest = rest->next;
         }
 
+        // attention here: if temp = 1
+        if(temp > 0){
+            cur->next = new node(temp);
+        }
+
         return res->next;
     }
 };
@@ -74,9 +77,9 @@ int main(){
     Solution sol;
     node *node1 = new node(2);
     node *node2 = new node(4);
-    //node *node3 = new node(3);
+    node *node3 = new node(6);
     node1->next = node2;
-    //node2->next = node3;
+    node2->next = node3;
 
     node *node4 = new node(5);
     node *node5 = new node(6);
@@ -86,13 +89,10 @@ int main(){
 
     node *res = sol.addTwoNumbers(node1, node4);
 
-    unsigned int cnt = 0;
     while(res){
         cnt ++;
         cout << res->data << " ";
         res = res->next;
-
-        if(cnt > 10)    break;
     }
     cout << endl;
 }

@@ -8,8 +8,8 @@ DEBUG = -g
 CFLAGS = -Wall -O1 ${STD} -c
 LFLAGS = -Wall
 OUTPUT = main
-SOURCE = binaryTree.cc anagrams.cc
-OBJS = binaryTree.o anagrams.o
+SOURCE = binaryTree.cc isBalanced.cc
+OBJS = isBalanced.o
 
 all:${OUTPUT}
 .PHONY:all
