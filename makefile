@@ -6,7 +6,7 @@
 CC=g++
 CFLAGS=-c -Wall -Werror -std=c++11 -g
 LDFLAGS=
-SOURCES=maxProfit_2.cc
+SOURCES=nextPermutation.cc
 OBJECTS=$(SOURCES:.cc=.o)
 EXECUTABLE=main
 
