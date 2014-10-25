@@ -22,7 +22,7 @@ using namespace std;
  *--------------------------------------------------------------------------------------
  *       Class:  linkedList
  *      Method:  linkedList :: Build_from_end
- * Description:  Build a linked list by pushing node from the head each time
+ * Description:  Build a linked list by pushing ListNode from the head each time
  *--------------------------------------------------------------------------------------
  */
 void linkedList::Build_from_head(){
@@ -34,21 +34,21 @@ void linkedList::Build_from_head(){
  *--------------------------------------------------------------------------------------
  *       Class:  linkedList
  *      Method:  linkedList :: Build_from_tail
- * Description:  Build a linked list by pushing node from the tail each time
+ * Description:  Build a linked list by pushing ListNode from the tail each time
  *               Using three methods, randomly choose one of them
- *               The difference lies in how to handle the very first node
+ *               The difference lies in how to handle the very first ListNode
  *--------------------------------------------------------------------------------------
  */
 void linkedList::Build_from_tail(){
 	srand(time(nullptr));
 	int num_of_method = rand() % 3 + 1;	
 
-	// use special case to handle the first node
+	// use special case to handle the first ListNode
 	if(num_of_method == 1){
 		cout << "Build from tail using method 1!" << endl;
 		
 		Push(&head, 1);
-		node* tail = head;
+		ListNode* tail = head;
 
 		for(int i = 2; i < 5; i ++){
 			Push(&tail->next, i);
@@ -57,12 +57,12 @@ void linkedList::Build_from_tail(){
 
 		return;
 	}
-	// use some temporary dummy code to handle the first node
+	// use some temporary dummy code to handle the first ListNode
 	else if(num_of_method == 2){
 		cout << "Build from tail using method 2!" << endl;
 		
-		node dummy;
-		node* tail = &dummy;
+		ListNode dummy;
+		ListNode* tail = &dummy;
 		dummy.next = nullptr;
 
 		for(int i = 1; i < 5; i ++){
@@ -76,7 +76,7 @@ void linkedList::Build_from_tail(){
 	else if(num_of_method == 3){
 		cout << "Build from tail using method 3!" << endl;
 		
-		node** tailRef = &head;
+		ListNode** tailRef = &head;
 	
 		for(int i = 1; i < 5; i ++){
 			Push(tailRef, i);
@@ -89,14 +89,14 @@ void linkedList::Build_from_tail(){
  *--------------------------------------------------------------------------------------
  *       Class:  linkedList
  *      Method:  linkedList :: Push
- * Description:  Push a node in front of the given head pointer
+ * Description:  Push a ListNode in front of the given head pointer
  *--------------------------------------------------------------------------------------
  */
-void linkedList::Push(node** _head, int value){
-	node* newNode = new node;
-	newNode->data = value;
-	newNode->next = *_head;
-	*_head = newNode;
+void linkedList::Push(ListNode** _head, int value){
+	ListNode* newListNode = new ListNode;
+	newListNode->data = value;
+	newListNode->next = *_head;
+	*_head = newListNode;
 }
 
 
@@ -109,7 +109,7 @@ void linkedList::Push(node** _head, int value){
  */
 int linkedList::Length(){
 	int count = 0;
-	node* cur = head;
+	ListNode* cur = head;
 	
 	while(cur){
 		count ++;
@@ -128,7 +128,7 @@ int linkedList::Length(){
  *--------------------------------------------------------------------------------------
  */
 void linkedList::printList(){
-	node* cur = head;
+	ListNode* cur = head;
 	
 	cout << "Current length " << Length() << " : ";
 

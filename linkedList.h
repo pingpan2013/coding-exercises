@@ -15,8 +15,8 @@
 #define _LINKEDLIST_H
 
 
-struct node{
-	node* next;
+struct ListNode{
+	ListNode* next;
 	int data;
 };
 
@@ -28,12 +28,12 @@ public:
 	// utility functions
 	void Build_from_head();                 /* add items from the front */
 	void Build_from_tail();                 /* add items from the tail */
-	void Push(node** head, int data);       /* push a item into the linkedlist */
+	void Push(ListNode** head, int data);       /* push a item into the linkedlist */
    	void printList();                       /* display the linkedlist */
 	int Length();                           /* calculate the current length */
 
 	// The only member, the head pointer
-	node* head;
+	ListNode* head;
 };
 
 #endif
