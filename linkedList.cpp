@@ -61,7 +61,7 @@ void linkedList::Build_from_tail(){
 	else if(num_of_method == 2){
 		cout << "Build from tail using method 2!" << endl;
 		
-		ListNode dummy;
+		ListNode dummy(0);
 		ListNode* tail = &dummy;
 		dummy.next = nullptr;
 
@@ -93,8 +93,8 @@ void linkedList::Build_from_tail(){
  *--------------------------------------------------------------------------------------
  */
 void linkedList::Push(ListNode** _head, int value){
-	ListNode* newListNode = new ListNode;
-	newListNode->data = value;
+	ListNode* newListNode = new ListNode(0);
+	newListNode->val = value;
 	newListNode->next = *_head;
 	*_head = newListNode;
 }
@@ -133,7 +133,7 @@ void linkedList::printList(){
 	cout << "Current length " << Length() << " : ";
 
 	while(cur){
-		cout << cur->data;
+		cout << cur->val;
 		if(cur->next)
 			cout << " -> ";
 		cur = cur->next;

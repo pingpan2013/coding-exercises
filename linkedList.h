@@ -16,8 +16,9 @@
 
 
 struct ListNode{
+	int val;
 	ListNode* next;
-	int data;
+        ListNode(int _val): val(_val), next(nullptr){}
 };
 
 

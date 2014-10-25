@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -Werror -std=c++11 -g
 LDFLAGS=-std=c++11
-SOURCES=linkedList.cpp test.cc
+SOURCES=linkedList.cpp test.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=main.o
 
