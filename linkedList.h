@@ -29,7 +29,7 @@ public:
 	// utility functions
 	void Build_from_head();                 /* add items from the front */
 	void Build_from_tail();                 /* add items from the tail */
-	void Push(ListNode** head, int data);       /* push a item into the linkedlist */
+	void Push(ListNode** head, int data);   /* push a item into the linkedlist */
    	void printList();                       /* display the linkedlist */
 	int Length();                           /* calculate the current length */
 
