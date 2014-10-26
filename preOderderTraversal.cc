@@ -1,10 +1,6 @@
 /*
  * =====================================================================================
- *       Filename:  maxDepth.cc
- *
- *    Description:  Find the maximum depth of a binary tree. Note that 
- *                  the max depth of an empty tree is 0.
- *
+ *    Description:  Preorder traverse a binary tree 
  *        Created:  09/19/2014 01:00:10 AM
  *       Compiler:  g++ 4.7.0
  * =====================================================================================
@@ -20,29 +16,31 @@ using namespace std;
 class Solution{
 public:
     /* Solution using recursion */
-    void inOrderTraverse_rec(node* root){
+    void preOrderTraverse_rec(node* root){
         if(!root)
             return;
-
-        inOrderTraverse_rec(root->left);
+        
         cout << root->data << " ";
-        inOrderTraverse_rec(root->right);
+        preOrderTraverse_rec(root->left);
+        preOrderTraverse_rec(root->right);
     }
     
-    void inOrderTraverse_iter(node* root) {
+    // Solution using iteration
+    void preOrderTraverse_iter(node* root) {
         stack<node*> st;
         node *current = root;
         while (!st.empty() || current) {
             while(current){
+                cout << current->data << " ";
                 st.push(current);
                 current = current->left;
             }
             
             current = st.top();
             st.pop();
-            cout << current->data << " ";
             current = current->right;
         }
+        cout << endl;
     }
 };
 
@@ -58,9 +56,12 @@ int main(){
     node1->right= node3;
     node3->left = node4;
     
-    sol.inOrderTraverse_rec(root);
+    cout << "Recursion: " << endl;
+    sol.preOrderTraverse_rec(root);
     cout << endl;
-    sol.inOrderTraverse_iter(root);
+
+    cout << "Iteration: " << endl;
+    sol.preOrderTraverse_iter(root);
 }
 
 

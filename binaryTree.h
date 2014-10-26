@@ -12,8 +12,7 @@
 #define _BINARYTREE_H
 
 struct node{
-    node(int _data){
-        data = _data;
+    node(int _data): data(_data), left(nullptr), right(nullptr){
     };
 
     int data;
