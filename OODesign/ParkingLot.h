@@ -38,7 +38,8 @@ class ParkingSpace{
         bool state;
         int index;
     public:
-        bool isFree();
+        virtual bool isFree();
+        virtual ~ParkingSpace(){}
 };
 class RegularParkingSpace: public ParkingSpace{}
 class HandicappedParkingSpace: public ParkingSpace{}
@@ -49,8 +50,8 @@ class Vehicle{
     private:
         bool parked;
     public:
-        bool isParked();
-
+        virtual bool isParked();
+        virtual ~Vehicle(){}
 };
 class Motorbike: public Vehicle{}
 class Car: public Vehicle{}
