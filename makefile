@@ -1,18 +1,11 @@
-CC=g++
-CFLAGS=-c -Wall -Werror -std=c++11 -g
-LDFLAGS=-std=c++11
-SOURCES=linkedList.cpp preOderderTraversal.cc
-OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=main.o
+DIRS = OODesign/ 
 
-all: $(SOURCES) $(EXECUTABLE)
-	
-$(EXECUTABLE): $(OBJECTS) 
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+all:  
+	cd OODesign/; make 
 
-.cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
+clean: 
+	cd OODesign/; make clean 
 
-clean:
-	rm -f *.o *~
+clobber: 
+	cd OODesign/; make clobber 
 
