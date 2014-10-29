@@ -22,5 +22,6 @@ struct node{
 
 extern void levelOrderTrav(node* node);
 extern void preOrderTrav(node* node);
+extern node* create_bst(int *a, int start, int end);
 
 #endif
