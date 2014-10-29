@@ -13,19 +13,21 @@ class ChessPieceTurn{}
 
 class GameManager{
     private: 
-        void processTurn(PlayerBase *p){};
+        void processTurn(PlayerBase *p){}
+        void acceptTurn(ChessPieceTurn *cp){}
+        bool isFinished(){}
+        
         Position curPosition;
         static GameManager *gInstance;
     
     public:
-        static GameManager* getInstance(){
-        }
+        static GameManager* getInstance(){}
 };
 
 
 
 class ChessPieceBase(){
-
+    
 }；
 class King: public ChessPieceBase{};
 class Queue: public ChessPieceBase{};
@@ -56,8 +58,6 @@ class Position{
         vector<vector<ChessPieceBase*> > black;
         vector<vector<ChessPieceBase*> > white;
 }
-
-
 
 
 
