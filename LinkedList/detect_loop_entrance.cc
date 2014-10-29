@@ -12,12 +12,13 @@
 
 #include "linklist.h"
 #include <iostream>
+#include <unordered_map>
 
 using namespace std;
 
 class Solution{
 public:    
-    bool isExistCycle(node* root){
+    node* loopStart(node* root){
         // detect if there is a cycle
         if(!root)   return false;
         node* slow_ptr = root;
@@ -39,6 +40,18 @@ public:
             slow_ptr = slow_ptr->next;
         }
         return slow_ptr;
+    }
+        
+    // a much simpler way to resolve the probelm using hash map
+    node* loopStart(node* root){
+        unordered_map<node*, bool> nodes;
+        node* cur = root;
+        while(cur){
+            if(nodes[cur])  return cur; 
+            
+            nodes[cur] = true;
+            cur = cur->next;
+        }
     }
 };
 
