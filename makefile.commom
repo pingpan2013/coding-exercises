@@ -2,7 +2,7 @@
 
 CC = g++
 CCFLAGS = -std=c++0x -Wall -Werror
-LDFLAGS = binaryTree.o
+LDFLAGS =
 
 # LOCFLAGS used to set tell the compiler where to find a
 # header that is not in the same directory as the source file itself

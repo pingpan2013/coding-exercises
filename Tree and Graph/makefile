@@ -1,4 +1,5 @@
 # executable files for this directory
-OBJECTS = subtree.exe binaryTree.exe
+OBJECTS = subtree.exe\
+	  test_header_file.exe\
 
 include ../makefile.commom

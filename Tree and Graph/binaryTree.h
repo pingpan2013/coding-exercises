@@ -37,7 +37,6 @@ void preOrderTrav(node* node);
 node* create_bst(int *a, int start, int end);
 
 node* create_bst(int* a, int start, int end){
-    assert(start >= 0 && end >= 0 && "Index out of ranges!");
     if(start > end) return nullptr;
     
     int mid = (start + end) / 2;

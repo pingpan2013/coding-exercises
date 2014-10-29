@@ -12,7 +12,7 @@
  */
 
 #include <iostream>
-#include "binarytree.h"
+#include "binaryTree.h"
 
 using namespace std;
 
