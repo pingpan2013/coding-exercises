@@ -24,28 +24,29 @@ class Solution{
         int maxPathSum(node* root){
             if(!root)   return 0;
 
-            int maxAcrossRoot = INT_MIN;   
-            int maxByOneSide = getMaxPathSum(root, maxAcrossRoot);
-
-            return max(maxAcrossRoot, maxByOneSide);
+            max_sum = INT_MIN;   
+            int maxByOneSide = getMaxPathSum(root);
+            return max(maxByOneSide, max_sum);
         }
 
     private:
-        int getMaxPathSum(node* n, int &maxAcrossRoot){
+        int getMaxPathSum(node* n){
             if(!n)  return 0;
 
-            int leftMax = getMaxPathSum(n->left, maxAcrossRoot);
-            int rightMax = getMaxPathSum(n->right, maxAcrossRoot);
+            int leftMax = getMaxPathSum(n->left);
+            int rightMax = getMaxPathSum(n->right);
             
             int cMax = n->data;
             if(leftMax > 0)
                 cMax += leftMax;
             if(rightMax > 0)
                 cMax += rightMax;
-            maxAcrossRoot = max(maxAcrossRoot, cMax);
+            max_sum = max(max_sum, cMax);
             int oneSideMax = max(n->data, max(n->data + leftMax, n->data + rightMax));
             return oneSideMax;
         }
+
+    int max_sum;  // use max_sum to record the value of the current max path sum
 };
 
 int main(){
@@ -54,7 +55,8 @@ int main(){
     levelOrderTrav(n);
     
     Solution sol;
-    cout << sol.maxPathSum(n) << endl;
+    assert(sol.maxPathSum(nullptr) == 0 && "Failed in the nullptr test");
+    assert(sol.maxPathSum(n) == 6 && "Failed in this general test");
 
     return 0;
 }
