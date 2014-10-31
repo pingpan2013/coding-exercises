@@ -24,7 +24,7 @@ struct node{
     node(int _data): data(_data), left(nullptr), right(nullptr){
     };
 
-    char data;
+    int data;
     node* left;
     node* right;
 };
@@ -32,7 +32,7 @@ struct node{
 //====================================================================
 // Several utility functions for bt or bst
 //====================================================================
-node* create_bst(char* a, int start, int end){
+node* create_bst(int* a, int start, int end){
     if(start > end) return nullptr;
     
     int mid = (start + end) / 2;
