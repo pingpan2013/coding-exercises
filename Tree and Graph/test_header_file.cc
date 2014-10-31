@@ -13,13 +13,18 @@
 
 #include "binarytree.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 int main(){
-    int a[] = {1, 2, 3, 4, 5, 6};
-    node* n = create_bst(a, 0, 5);
-    levelOrderTrav(n);
+    //int a[] = {1, 2, 3, 4, 5, 6};
+    //node* n = create_bst(a, 0, 5);
     
+    char b[] = {'c', 'e', 'r', 'n', 'e', 'r'};
+    sort(b, b+6);
+    node* n = create_bst(b, 0, 5);
+    levelOrderTrav(n);
+        
     return 0;
 }
