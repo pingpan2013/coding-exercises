@@ -1,5 +1,5 @@
 # executable files for this directory
 OBJECTS = subtree.exe\
-	  test_header_file.exe\
+	  max_path_sum.exe\
 
 include ../makefile.commom

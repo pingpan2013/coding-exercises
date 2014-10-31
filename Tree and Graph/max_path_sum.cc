@@ -47,15 +47,15 @@ class Solution{
             return oneSideMax;
         }
 
-}
+};
 
 int main(){
-    int a[] = {1, -2, 3, -4, 5, 6};
+    int a[] = {1, -2, 3, 6, -5, -4};
     node* n = create_bst(a, 0, 5);
     levelOrderTrav(n);
     
     Solution sol;
-    cout << sol.max_path_sum(n) << endl;
+    cout << sol.maxPathSum(n) << endl;
 
     return 0;
 }
