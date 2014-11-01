@@ -25,9 +25,13 @@ using namespace std;
 
 class Solution{
 public:
-    // Brute-force method
+    // Brute-force method: Using a two-level for loop，time complexity O(n^2)
+    //
+    // Second method: Using a hash map to record the last position of the repeated char,
+    // start over from there and record the current max length.
     // Time complexity depends on the number of times that there are duplications
-    int lengthOfLongestSubstring(string s){
+    // TODO: It cannot pass the leetcode OJ since time limit exceeds
+    int lengthOfLongestSubstring_(string s){
         if(s.empty())   return -1;
         
         unordered_map<char, unsigned int> hashMap;
@@ -48,12 +52,43 @@ public:
         curSize = hashMap.size();
         return max(curMax, curSize);
     }
+    
+    // Third method:
+    // In the above method, each time we fund a repeated char, we clear the hashmap.
+    // This leads to repeated accesses which leads to exceed the final time limit
+    // Actually, use two pointers can solve this problem.
+    int lengthOfLongestSubstring(string s){
+        if(s.empty())   return 0;
+
+        unordered_map<char, int> hashMap;
+        int i = 0, j = 0;
+        int curMax = -1;
+        int n = s.length();
+
+        for(i = 0; i < n; i ++){
+            if(hashMap.find(s[i]) == hashMap.end()){
+                hashMap[s[i]] = i;
+            }
+            else{
+                curMax = max(curMax, i - j);
+                // partially clear the hashmap unitl the last occurance of the repeated char
+                for(int k = j; k < hashMap[s[i]]; k ++)
+                    hashMap.erase(hashMap[s[k]]);
+                
+                j = hashMap[s[i]] + 1;
+                hashMap[s[i]] = i;
+            }
+        }
+
+        curMax = max(curMax, n - j);
+        return curMax;
+    }
 };
 
 int main(){
     Solution sol;
     string s("");
-    assert(sol.lengthOfLongestSubstring(s) == -1 && "Failed in this null string test!");
+    assert(sol.lengthOfLongestSubstring(s) == 0 && "Failed in this null string test!");
 
     string s1("abcabcbb");
     assert(sol.lengthOfLongestSubstring(s1) == 3 && "Failed in this general test!");
