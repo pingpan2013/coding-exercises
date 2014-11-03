@@ -26,19 +26,26 @@ class Solution{
 public:
     int lengthOfLastWord(const char* s){
         if(s[0] == '\0')  return 0;
-        int spacePos = 0;
-        int cnt = 0;   // record the length of the string
+        
+        // one pointer cnt to traverse the string
+        // len to record the max length
+        int len = 0;
+        int cnt = 0;
         
         while(s[cnt] != '\0'){
-            if(s[cnt] == ' ')
-                spacePos = cnt; 
-            cnt ++;
+            if(s[cnt] != ' '){
+                len = 0;
+                while(s[cnt] != '\0' && s[cnt] != ' '){
+                    len ++;
+                    cnt ++;
+                }
+            }
+            else{
+                cnt ++;
+            }
         }
-
-        if(s[cnt-1] == ' ')
-            return 0;
-        else
-            return cnt-spacePos-1;
+        
+        return len;
     }
 };
 
@@ -59,7 +66,11 @@ int main(){
     assert(sol.lengthOfLastWord(str1.c_str()) == 0 && "failed in this corner test!");
 
     string str2("Hello World  ");
-    assert(sol.lengthOfLastWord(str2.c_str()) == 0 && "failed in this general test!");
+    assert(sol.lengthOfLastWord(str2.c_str()) == 5 && "failed in this general test!");
+    
+    string str3(" H");
+    assert(sol.lengthOfLastWord(str3.c_str()) == 1 && "failed in this general test!");
 
+    cout << "pass all the test cases!" << endl;
     return 0;
 }
