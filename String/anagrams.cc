@@ -22,9 +22,10 @@ using namespace std;
 
 class Solution{
 public:
-    void findAnagrams(vector<string> strArr){
+    vector<string> findAnagrams(vector<string> strArr){
         // use a map or hashmap to store the results
         // time and space complexity O(n)
+        vector<string> res_vec;
         unordered_map<string, vector<string> > res;
          
          for(auto str: strArr){
@@ -34,13 +35,22 @@ public:
          }
         
         // display results
+        //for(auto str_pair: res){
+        //    cout << str_pair.first << ": ";
+        //    for(auto str: str_pair.second){
+        //        cout << str << " ";
+        //    }
+        //    cout << endl;
+        //}
+        
         for(auto str_pair: res){
-            cout << str_pair.first << ": ";
             for(auto str: str_pair.second){
-                cout << str << " ";
+                if(str_pair.second.size() > 1)
+                    res_vec.push_back(str);
             }
-            cout << endl;
         }
+
+        return res_vec;
     }
 };
 
@@ -53,8 +63,12 @@ int main(){
     strArr.push_back("c");
 
     Solution s;
-    s.findAnagrams(strArr);
+    vector<string> res_vec = s.findAnagrams(strArr);
     
+    for(auto str: res_vec)
+        cout << str << " ";
+    cout << endl;
+
     return 0;
 }
 
