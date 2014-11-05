@@ -27,6 +27,25 @@ public:
         return helper(A, 0, n-1, target);
     }
 
+    int findRotationPos(int A[], int n){
+        int l = 0;
+        int r = n - 1;
+        int mid;
+
+        while(A[l] > A[r]){
+            mid = (l+r)/2;
+            if(A[l] < A[mid])
+                l = mid + 1;
+            else
+                r = mid;
+        }
+
+        cout << l << endl;
+        cout << r << endl;
+        return l;
+
+    }
+
 private:
     // can use iteration or recursion
     int helper(int A[], int l, int h, int target){
@@ -60,9 +79,15 @@ int main(){
     Solution sol;
     int A[] = {7, 8, 9, 1, 2, 3, 4, 5, 6};
     assert(sol.search(A, 9, 7) == 0 && "failed in test 1!");
+    assert(sol.findRotationPos(A, 9) == 3 && "failed in test 1!");
+    
+    
     assert(sol.search(A, 9, 8) == 1 && "failed in test 2!");
+    
     assert(sol.search(A, 9, 1) == 3 && "failed in test 3!");
+    
     assert(sol.search(A, 9, 5) == 7 && "failed in test 4!");
+    
     assert(sol.search(A, 9, 6) == 8 && "failed in test 5!");
 
     cout << "Past all the test cases!" << endl;
