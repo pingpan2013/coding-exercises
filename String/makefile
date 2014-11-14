@@ -2,5 +2,6 @@
 OBJECTS = length_of_longest_substring.exe anagrams.exe length_of_last_word.exe\
 	  reverse_string.exe search_for_a_range.exe removePuncts.exe\
 	  longest_common_profix.exe num_of_distinct_subsequence.exe\
+	  reverseWords.exe\
 
 include ../makefile.commom
