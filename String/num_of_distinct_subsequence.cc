@@ -36,19 +36,19 @@ public:
         if(T.empty())   return 1;
         if(S.empty())   return 0;
 
-        vector<int> row(T.length(), 0);
-        vector<vector<int> > dp(S.length(), row);
+        vector<int> row(T.length() + 1, 0);
+        vector<vector<int> > dp(S.length() + 1, row);
 
         // initialization, if T is empty, dp should return 1
-        for(int i = 0; i < S.length(); i ++)
+        for(int i = 0; i <= S.length(); i ++)
             dp[i][0] = 1;
         
         displayVec(dp);
 
         // dynamic part
-        for(int i = 1; i < S.length(); i ++){
-            for(int j = 1; j < T.length(); j ++){
-                if(S[i] == T[j]) 
+        for(int i = 1; i <= S.length(); i ++){
+            for(int j = 1; j <= T.length(); j ++){
+                if(S[i-1] == T[j-1]) 
                     dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
                 else
                     dp[i][j] = dp[i - 1][j];
@@ -57,7 +57,7 @@ public:
         
         displayVec(dp);
         
-        int result = dp[S.length()-1][T.length()-1];
+        int result = dp[S.length()][T.length()];
         return result; 
     }
 
@@ -77,13 +77,18 @@ int main(){
     
     string S("");
     string T("");
-    assert(sol.numDistinct(S, T) == 1 && "failed in the given test!");
+    assert(sol.numDistinct(S, T) == 1 && "failed in the test 1!");
 
     T.append("rabbit");
-    assert(sol.numDistinct(S, T) == 0 && "failed in the given test!");
+    assert(sol.numDistinct(S, T) == 0 && "failed in the test 2!");
 
     S.append("rabbbit");
-    assert(sol.numDistinct(S, T) == 3 && "failed in the given test!");
+    assert(sol.numDistinct(S, T) == 3 && "failed in the given test 3!");
+    
+    ///// other tests
+    string S1("b");
+    string T1("a");
+    assert(sol.numDistinct(S1, T1) == 0 && "failed in the  test 4!");
 
     cout << "Passed all the tests!" << endl;
     return 0;
