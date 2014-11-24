@@ -1,4 +1,4 @@
 # executable files for this directory
-OBJECTS = max_subarray.exe 
+OBJECTS = max_subarray.exe plus_one.exe 
 
 include ../makefile.commom
