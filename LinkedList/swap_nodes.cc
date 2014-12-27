@@ -8,68 +8,41 @@
  * =====================================================================================
  */
 
-#include "linklist.h"
-#include <iostream>
-
-using namespace std;
-
-class Solution{
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
 public:
-    node* swapNodes(node* root){
-        if(!root)   return nullptr;
+    ListNode *swapPairs(ListNode *head) {
+        if(!head || !head->next)
+            return head;
         
-        node* cur = root;
-        node* helper = new node;
-        helper->data = 0;
-        helper->next = root;
-        node* pre = helper;
+        ListNode *dummyNode = new ListNode(0);
+        dummyNode->next = head;
 
-        while(cur){
-            if(!cur->next)  break;;
-           
-            node* temp = cur->next->next;
-            cur->next->next = pre->next;
+        ListNode *cur = head;
+        ListNode *pre = dummyNode;
+        
+        
+        while(cur && cur->next){
+            ListNode *next = cur->next->next;
+            
             pre->next = cur->next;
-            cur->next = temp;
-                
+            cur->next = next;
+            pre->next->next = cur;
+            
             pre = cur;
-            cur = cur->next;
+            cur = next;
         }
         
-        return helper->next;
+        head = dummyNode->next;
+        delete dummyNode;
+        return head;
     }
 };
 
-
-int main(){
-    node* root  = new node;
-    node* node1 = new node;
-    node* node2 = new node;
-    node* node3 = new node;
-    node* node4 = new node;
-    node* node5 = new node;
-    node* node6 = new node;
-    root ->data = 0;
-    node1->data = 1;
-    node2->data = 2;
-    node3->data = 2;
-    node4->data = 3;
-    node5->data = 4;
-    node6->data = 5;
-    root ->next = node1;
-    node1->next = node2;
-    node2->next = node3;
-    node3->next = node4;
-    node4->next = node5;
-    node5->next = node6;
-    node6->next = nullptr;
-    
-    Solution sol;
-    node* cur = sol.swapNodes(root);
-    while(cur){
-        cout << cur->data << " ";
-        cur = cur->next;
-    }
-    cout << endl;
-    return 0;
-}
