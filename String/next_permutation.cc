@@ -14,56 +14,60 @@
 
 using namespace std;
 
-class Solution{
-public:    
-    void nextPermutation(vector<int> &vec){
-        assert(!vec.empty() && "Input is empty!");
-        if(vec.size() == 1) return;
-
-        // search from the end find the first element that is smaller than
-        // the previous element
+class Solution {
+public:
+    void nextPermutation(vector<int> &num) {
+        if(num.empty() || num.size() == 1)
+            return;
+        
+        int length = num.size();
         int swapPoint = -1;
-        for(vector<int>::size_type i = vec.size()-1; i >= 0; i --){
-            if(vec[i] > vec[i-1]){
-                swapPoint = i-1;
+        for(int i = length - 2; i >= 0; i --){
+            if(num[i] < num[i+1]){
+                swapPoint = i;
                 break;
             }
         }
         
-        // corner cases
-        if(swapPoint == -1) return;
-        assert(swapPoint >= 0);
+        if(swapPoint == -1){
+            sort(num.begin(), num.end());
+            return;
+        }
+        
+        int sp = -1;
+        for(int j = length - 1; j > swapPoint; j --){
+            if(num[j] > num[swapPoint]){
+                sp = j;
+                break;
+            }
+        }
 
-        // swap 
-        swap(vec[swapPoint], vec[vec.size()-1]);
-
-        // reorder the rest parts
-        sort(&vec[swapPoint+1], &vec[vec.size()]);
+        swap(num[swapPoint], num[sp]);
+        sort(num.begin() + swapPoint + 1, num.end());
+        
+        return;
     }
-    
+
     void printVec(vector<int> &vec){
         for(auto i: vec)
-            cout << i;
+            cout << i << " ";
         cout << endl;
     }
 };
+  
 
 int main(){
     Solution sol;
+    // 5,4,7,5,3,2
     vector<int> vec;
+    vec.push_back(5);
     vec.push_back(4);
-    
-    sol.nextPermutation(vec);
-    sol.printVec(vec);
-
+    vec.push_back(7);
+    vec.push_back(5);
     vec.push_back(3);
     vec.push_back(2);
-    sol.nextPermutation(vec);
+    
     sol.printVec(vec);
-
-    vec.push_back(8);
-    vec.push_back(7);
-    vec.push_back(6);
     sol.nextPermutation(vec);
     sol.printVec(vec);
 
