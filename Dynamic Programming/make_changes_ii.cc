@@ -6,7 +6,9 @@
  *    Description:  Given a list of N coins, their values (V1, V2, ... , VN), and the 
                     total sum S. Find out the total number of ways that we can make 
                     the change?
- 
+                    
+                    (it would be combination sum problem if asking find all sets)
+
  *        Created:  01/14/2015 21:37:56
  *       Compiler:  g++ 4.7.0
  *
