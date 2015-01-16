@@ -42,6 +42,26 @@ public:
         }
         cout << endl;
     }
+
+     // iterative method 2, faster
+    vector<int> preorderTraversal(TreeNode *root) {
+        vector<int> res;
+        if(!root)   return res;
+        
+        stack<TreeNode*> st;
+        st.push(root);
+        
+        while(!st.empty()){
+            TreeNode *top = st.top();
+            res.push_back(top->val);
+            st.pop();
+            
+            if(top->right)  st.push(top->right);
+            if(top->left)   st.push(top->left);
+        }
+        
+        return res;
+    }
 };
 
 int main(){
