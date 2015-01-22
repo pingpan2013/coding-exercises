@@ -1,9 +1,9 @@
 /*
  * =====================================================================================
  *
- *       Filename:  longest_common_substring.cc
+ *       Filename:  longest_common_subsequence.cc
  *
- *    Description:  longest common substring
+ *    Description:  longest common subsequence
  *
  *        Created:  01/21/2015 22:54:39
  *       Compiler:  g++ 4.7.0
