@@ -49,7 +49,7 @@ private:
             subset.push_back(S[i]);
             
             res.push_back(subset);
-            dfs(res, subset, S, lvl+1);
+            dfs(res, subset, S, i+1);
             
             subset.pop_back();
             
@@ -60,10 +60,15 @@ private:
 };
 
 int main(){
-    vector<int> vec({1, 2, 2});
+    vector<int> vec({1, 2, 2, 2});
     Solution sln;
-
-    sln.subsetsWithDup(vec);
+    
+    for(auto itr : sln.subsetsWithDup(vec)){
+        for(auto it : itr){
+            cout << it << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
