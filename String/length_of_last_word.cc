@@ -55,7 +55,7 @@ int main(){
     // BTW: convert string to char*
     // 1. const char *s = str.c_str();   can only be converted to const char*
     // 2. char *s = &str[0]; 
-    // 3. Deep copy of the char*
+    // 3. Deep copy:
     //    char *s = new char[str.length() + 1];
     //    strcpy(s, str.c_str());
     //    delete [] s;

@@ -1,7 +1,7 @@
 # common makefile for these projects
 
 CC = g++
-CCFLAGS = -std=c++0x -Wall -Werror
+CCFLAGS = -std=c++0x -Wall
 LDFLAGS =
 
 # LOCFLAGS used to set tell the compiler where to find a
