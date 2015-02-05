@@ -22,30 +22,25 @@
 using namespace std;
 
 class Solution {
-    public:
-        vector<int> plusOne(vector<int> &digits) {
-            int length = digits.size();
-            if(length == 0)
-                return digits;
-
-            int temp = 1;
-            for(int i = length - 1; i >= 0; i --){
-                int digit = digits[i];
-                
-                digits[i] = (digits[i] + temp >= 10) ? 
-                        digits[i] + temp - 10 : digits[i] + temp;
-                temp = (digit + temp >= 10) ? 1 : 0;
-            
-                cout << temp << endl;
-
-                if(i == 0 && temp == 1){
-                    digits.resize(length + 1, 1);
-                    rotate(digits.begin(), digits.end()-1, digits.end());
-                }
-            }
-
-            return digits;
+public:
+    vector<int> plusOne(vector<int> &digits) {
+        if(digits.empty())  return digits;
+        
+        int c = 1;
+        
+        for(int i = digits.size()-1; i >= 0; i --){
+            int sum = digits[i] + c;
+            c = (sum >= 10) ? 1 : 0;
+            digits[i] = (sum >= 10) ? sum - 10: sum;
         }
+
+        if(c == 1){
+            digits.push_back(1);
+            rotate(digits.begin(), digits.end() - 1, digits.end());
+        }
+        
+        return digits;
+    }
 };
 
 int main(){
