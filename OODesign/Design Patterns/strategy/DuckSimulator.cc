@@ -18,6 +18,13 @@
  3. Favor object composition over class inheritance
 */
 
+
+/**
+ * Strategy Pattern:
+ * Design class for behaviors and make use of aggregation or composition to integrate
+ * the behavior class 
+ */
+
 #include <iostream>
 
 using namespace std;
