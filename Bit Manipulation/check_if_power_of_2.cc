@@ -16,13 +16,13 @@
 using namespace std;
 
 bool check(int x){
-    return (x & (x-1) == 0);
+    return (x & (x-1)) == 0;
 }
 
 int main(){
 
     assert(check(1024) && "Failed in test 2.");
-    assert(check(1022) && "Failed in test 3.");
+    assert(!check(1022) && "Failed in test 3.");
     
     return 0;
 }
