@@ -59,10 +59,10 @@ public:
         // main body
         for(int i = 2; i < n; i++){
             if(s[i] == '0'){
-                if(s[i-1] <= '2')    dp[i] = dp[i-2];
+                if(s[i-1] <= '2' && s[i-1] > '0')    dp[i] = dp[i-2];
                 else    return 0;
             }
-            else if(s[i-1] == '1' || (s[i-1] == 2 && s[i] <= '6')){
+            else if(s[i-1] == '1' || (s[i-1] == '2' && s[i] <= '6')){
                 dp[i] = dp[i-2] + dp[i-1];
             }
             else{
