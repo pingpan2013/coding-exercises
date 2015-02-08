@@ -32,15 +32,13 @@ private:
         cout << endl;
     }
 
-        
-
-
     void quickSort(vector<int> &arr, int left, int right) {
         if(left >= right)   return;
         
         int i = left, j = right;
-        int pivot = arr[(left + right) / 2];
- 
+       // int pivot = arr[(left + right) / 2];
+        int pivot = arr[rand()%(right-left+1) + left];
+
         /* partition */
         while (i < j) {
             while (arr[i] < pivot)
@@ -62,10 +60,7 @@ private:
 
 
 int main(){
-    //vector<int> vec({1, 2, 4, 5, 1, 3, 10, 20, 9, 12, 13, 0}); 
-    
-    vector<int> vec({5, 4,3,2,1});
-
+    vector<int> vec({1, 2, 4, 5, 1, 3, 10, 20, 9, 12, 13, 0}); 
     
     Solution sln;
     sln.quicksort(vec);
