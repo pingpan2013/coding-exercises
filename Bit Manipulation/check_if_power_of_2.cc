@@ -33,7 +33,6 @@ int countNum(int x){
     return cnt;
 }
 
-
 int main(){
 
     assert(check(1024) && "Failed in test 2.");

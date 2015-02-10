@@ -27,7 +27,6 @@ public:
         
         if(l && r)  return root;
         return l ? l : r;
-
     }
 };
 
