@@ -12,38 +12,33 @@
 
 using namespace std;
 
-class Solution{
-    public:
-        unsigned searchInsert(int A[], int n, int target){
-            int l = 0;
-            int r = n-1;
+class Solution {
+public:
+    int searchInsert(int A[], int n, int target) {
+        if(n == 0)  return 0;
+        
+        int l = 0;
+        int r = n-1;
+        while(l <= r){
+            int m = (r-l)/2 + l;
             
-            if(A[0] >= target)
-                return 0;
-            if(A[n-1] <= target)
-                return n-1;
-
-            while(l <= r){
-                int mid = (l+r)/2;
-                if(A[mid] > target && A[mid-1] < target )
-                    return mid;
-                if(A[mid] == target)
-                    return mid;
-                else if(A[mid] > target)
-                    r = mid - 1;
-                else if(A[mid] < target)
-                    l = mid + 1;
+            if(A[m] == target)  return m;
+            else if(A[m] > target){
+                if((m-1 >= l && A[m-1] < target) || m-1 < l) return m;
+                r = m-1;
+            }
+            else{
+                if((m+1 <= r && target < A[m+1]) || m+1 > r) return m+1; 
+                l = m+1;
             }
         }
+    }
 };
-
 
 int main(){
     Solution sol;
-    int A[] = {1, 3, 5, 6};
-    cout << sol.searchInsert(A, 4, 5) << endl;
-    cout << sol.searchInsert(A, 4, 2) << endl;
-    cout << sol.searchInsert(A, 4, 0) << endl;
-    cout << sol.searchInsert(A, 4, 7) << endl;
+    int A[] = {1, 3, 5};
+    cout << sol.searchInsert(A, 3, 0) << endl;
 
+    return 0;
 }
