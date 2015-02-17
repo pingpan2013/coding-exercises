@@ -12,9 +12,6 @@
  * =====================================================================================
  */
 
-
-
-
 /**
  * Definition for binary tree
  * struct TreeNode {
@@ -31,8 +28,8 @@ public:
     void recoverTree(TreeNode *root) {
         if(!root)   return;
         
-        TreeNode *first = nullptr;
-        TreeNode *second = nullptr;
+        TreeNode *first = nullptr;   // should be initialized to nullptr, otherwise may cause
+        TreeNode *second = nullptr;  // overflow
         TreeNode *pre = nullptr;
         
         dfs(root, pre, first, second);
