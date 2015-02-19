@@ -44,8 +44,11 @@ vector<int> findElements(vector<int> &vec, int k){
             queue.push(make_pair(itr.first, itr.second));
         }
         else{
-            queue.pop();
-            queue.push(make_pair(itr.first, itr.second));
+            // Attention here, otherwise do nothing
+            if(itr.second > queue.top().second){
+                queue.pop();
+                queue.push(make_pair(itr.first, itr.second));
+            }
         }
     }
     
