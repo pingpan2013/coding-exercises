@@ -18,6 +18,23 @@
  */
 class Solution {
 public:
+    // recursion
+    ListNode *swapPairs(ListNode *head){
+        if(!head)   return head;
+        
+        if(head && head->next){
+            ListNode *next = head->next->next;
+            ListNode *temp = head;
+            
+            head = head->next;
+            head->next = temp;
+            temp->next = swapPairs(next);
+        }
+        
+        return head;
+    } 
+    
+    // iterative
     ListNode *swapPairs(ListNode *head) {
         if(!head || !head->next)
             return head;
