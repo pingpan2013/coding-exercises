@@ -39,7 +39,9 @@ public:
 
     int peek(){
         if(peeks.empty()){
-            return itr.get_next();
+            int ret = itr.get_next();
+            peeks.push_back(itr);
+            return ret;
         }
         else{
             return peeks.back();
