@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
@@ -65,12 +66,64 @@ int minDistance(string &text, string &word1, string &word2){
 }
 
 
+// Possible follow-up
+// if we need to call this function frequently and the data set is large
+// we'd better construct indexes for each word and then check the indexes to 
+// calculate the minimal distance between all of two words' indexes
+// 
+// Use hashtable to build indexes:
+// unordered_map<string, vector<int> >
+//
+// e.g. word1 -> [1, 4, 5, 8, 9]
+//      word2 -> [2, 7, 6, 8, 10]
+// Then all we need do is to find the pair of elements, each from one array,
+// s.t. the difference between them are smallest
+int findMinDiff(vector<int> &index1, vector<int> &index2){
+    if(index1.empty() || index2.empty())    return INT_MAX;
+    
+    int m = index1.size(), n = index2.size();
+   
+    // corner case optimization
+    if(index1[m-1] < index2[0]){
+        return abs(index1[m-1] - index2[0]);
+    }
+
+    if(index1[0] > index2[n-1]){
+        return abs(index1[0] - index2[n-1]);
+    }
+    
+    int i = 0, j = 0;
+    int min_diff = INT_MAX;
+    while(i < m && j < n){
+        min_diff = min(min_diff, abs(index1[i] - index2[j]));
+        
+        if(index1[i] < index2[j]){
+            i++;
+        }
+        else if(index1[i] > index2[j]){
+            j++;
+        }
+        else{
+            // should throw exception because two different words cannot 
+            // have the same index
+        }
+    }
+
+    return min_diff;
+}
+
+
 int main(){
     string text("python is good, but java is better, python java"); 
 
     string word1("python");
     string word2("java");
     cout << minDistance(text, word1, word2) << endl;    
+
+    // find min diff between two sorted arrays
+    vector<int> index1({2, 15, 26, 48, 100});
+    vector<int> index2({23, 46, 56, 78, 99});
+    cout << findMinDiff(index1, index2) << endl;
 
     return 0;
 }
