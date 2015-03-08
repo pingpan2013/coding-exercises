@@ -5,6 +5,8 @@
  *
  *    Description:  topological sorting
  *                  Reference: http://www.geeksforgeeks.org/topological-sorting/
+ *                  
+ *                  Note that the graph shohuld be directed acyclic graph (DAG).
  *
  *                  Note that a vertex is pushed to stack only when all of its adjacent 
  *                  vertices (and their adjacent vertices and so on) are already in stack.
